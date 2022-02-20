@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample_calculator</title>
+</head>
+<body>
+  <form id="signup-form">
+  <input type="text" id="nameone">
+  <div id="feedbackone"></div>
+  <input type="text" id="nametwo">
+  <div id="feedbacktwo"></div>
+  <input type="text" id="namethree">
+  <div id="feedbackthree"></div>
+  <input type="text" id="namefour">
+  <div id="feedbackfour"></div>
+  <input type="text" id="namefive">
+  <div id="feedbackfive"></div>
+  <input type="text" id="namesix">
+  <div id="feedbacksix"></div>
+  <!-- <input type="text" id="name">
+  <div id="feedback"></div> -->
+  </form>
+    <script>
+      // function map(f, a) {
+      // let result = []; // Create a new Array
+      // let i; // Declare variable
+      // for (i = 0; i != a.length; i++)
+      //   result[i] = f(a[i]);
+      //   return result;
+      // }
+      // let numbers = [0, 1, 2, 5, 10];
+      // let cube = map(f,numbers);
+      // console.log(cube);
+      const add = function(x,y) {
+      return x+y;
+      }
+    //   console.log(add(2,3))
+    const addition = function sum(m,n) { return m!==NaN && n!==NaN ? add(m,n) : `invalid` }
+      console.log(addition(3654,87654649))
+      function extractingArgs(...args){
+  return args[1];
+}
+// extractingArgs(8,9,1); // Returns 9
+function addAllArgs(...args){
+  let sumOfArgs = 0;
+  let i = 0;
+  while(i < args.length){
+    sumOfArgs += args[i];
+    i++;
+  }
+  return sumOfArgs;
+}
+// console.log(addAllArgs(6, 5, 7, 99)); // Returns 117
+// console.log(addAllArgs(1, 3, 4)); // Returns 8
+      const power = function(x,y) {
+      return Math.pow(x,y);
+      }
+      // console.log(power(3,2));
+      // console.log(add(1,2));
+      const sub = function(x,y) {
+      return x-y;
+      }
+      // console.log(sub(3,2));
+      const mul = function(x,y) {
+      return x*y;
+      }
+      // console.log(mul(3,2));
+      const div = function(x,y) {
+      return x/y;
+      }
+      // console.log(div(3,2));
+      if (7-2) {
+        // console.log(sub(7,2))
+        // console.log(parseInt(1+2))  
+    }
+      const pt = function(x,y){
+          return parseInt(x+y)
+      }
+      function computeSum(arr){
+  if(arr.length === 1){
+    return arr[0];
+  }
+  else{
+    return arr.pop() + computeSum(arr);
+  }
+}
+// console.log(computeSum([999]))
+function computeSum(arr){
+  if(arr.length === 1){
+    return arr[0];
+  }
+  else{
+    return arr.pop() * computeSum(arr);
+  }
+}
+// console.log(computeSum([2,3,4]))
+var arr = [10, 20, 30];
+
+var sum = arr.reduce(function(sum, elem) {
+    return sum + elem;
+});
+// console.log(sum); // Output: 60
+var sum = arr.reduce(function(sum, elem) {
+    return sum * elem;
+});
+// console.log(sum);
+    //   console.log(pt(1,2))
+    const form = document.getElementById('signup-form');
+    const feedbackone = document.getElementById('feedbackone');
+    const feedbacktwo = document.getElementById('feedbacktwo');
+    const feedbackthree = document.getElementById('feedbackthree');
+    const feedbackfour = document.getElementById('feedbackfour');
+    const feedbackfive = document.getElementById('feedbackfive');
+    const feedbacksix = document.getElementById('feedbacksix');
+    // const feedback = document.getElementById('feedback');
+    form.addEventListener('input', e=> {
+    e.preventDefault();
+    const nameone = form.nameone.value;
+    // let x
+    // let y
+    // const addition = function(xy) { 
+    // return add(x,y)            
+    // }
+    // const x = (x + y) => add(x,y);
+    // console.log(addition(23))
+    // const patternone = /^([0-9]+[\+])*([0-9]+)$/;
+    const patternone = /^([0-9]+[\+])*([0-9]+)$/;
+//           function computeSum(arr){
+//   if(arr.length === 1){
+//     return arr[0];
+//   }
+//   else{
+//     return arr.pop() + computeSum(arr);
+//   }
+// }
+// console.log(computeSum([999]))
+    if (patternone.test(nameone)) {
+        // feedbackone.textContent = addition(nameone);
+        // feedbackone.textContent = add(nameone);
+        // console.log(computeSum([nameone]))
+        // console.log(parseInt(nameone))
+        // feedbackone.textContent = parseInt(nameone)
+        // console.log(parseInt(addition(nameone)))
+        feedbackone.textContent = 'valid';
+        // console.log(add());
+    }
+    else{
+        feedbackone.textContent = 'invalid';
+    }
+    const nametwo = form.nametwo.value;
+    const patterntwo = /^([0-9]+[\-])*([0-9]+)$/;
+    if (patterntwo.test(nametwo)) {
+        feedbacktwo.textContent = 'valid';
+        // console.log(sub());
+    }
+    else{
+        feedbacktwo.textContent = 'invalid';
+    }
+    const namethree = form.namethree.value;
+    const patternthree = /^([0-9]+[\*])*([0-9]+)$/;
+    if (patternthree.test(namethree)) {
+        feedbackthree.textContent = 'valid';
+        // console.log(mul());
+    }
+    else{
+        feedbackthree.textContent = 'invalid';
+    }
+    const namefour = form.namefour.value;
+    const patternfour = /^([0-9]+[\/])*([0-9]+)$/;
+    if (patternfour.test(namefour)) {
+        feedbackfour.textContent = 'valid';
+        // console.log(div());
+    }
+    else{
+        feedbackfour.textContent = 'invalid';
+    }
+    const namefive = form.namefive.value;
+    const patternfive = /^([0-9]+[\^])*([0-9]+)$/;
+    if (patternfive.test(namefive)) {
+        feedbackfive.textContent = 'valid';
+        // console.log(power());
+    }
+    else{
+        feedbackfive.textContent = 'invalid';
+    }
+    const factorial = function fac(n) { return n < 2 ? 1 : n * fac(n - 1) }
+    // console.log(factorial(3))
+    // console.log(factorial(3))
+    const namesix = form.namesix.value;
+    const patternsix = /^([0-9])*([0-9]+)$/;
+    if (patternsix.test(namesix)) {
+        // feedbacksix.textContent = 'valid';
+        feedbacksix.textContent = factorial(namesix);
+        // console.log(factorial());
+    }
+    else{
+        feedbacksix.textContent = 'invalid';
+    }  
+    // const name = form.name.value;
+    // if (patternone.test(name)) {
+    //     feedback.textContent = 'valid';
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }
+    // if (patterntwo.test(name)) {
+    //     feedback.textContent = 'valid';
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }
+    // if (patternthree.test(name)) {
+    //     feedback.textContent = 'valid';
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }
+    // if (patternfour.test(name)) {
+    //     feedback.textContent = 'valid';
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }
+    // if (patternfive.test(name)) {
+    //     feedback.textContent = 'valid';
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }
+    // if (patternsix.test(name)) {
+    //     feedback.textContent = 'valid';
+    //     feedback.textContent = factorial(name);
+    // }
+    // else{
+    //     feedback.textContent = 'invalid';
+    // }  
+});
+// let x=5
+// let y=6
+// const addition = function addthem(xy) { 
+//     return add(x,y)            
+//     }
+//     console.log(addition(23))
+    </script>
+        
+</body>
+</html>
